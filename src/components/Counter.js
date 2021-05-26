@@ -1,26 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { increment, decrement, reset } from './../redux/actions';
 
-const initialState = 0
 const Counter = () => {
-    const [initCounter, setInitCounter] = useState(initialState);
+    const dispatch = useDispatch();
+    const counter = useSelector(state => state.count);
 
-    const incrementHandler = (e) => {
-        e.preventDefault();
-        setInitCounter(initCounter + 1);
+    const incrementHandler = () => {
+        dispatch(increment());
     };
 
-    const decrementHandler = (e) => {
-        e.preventDefault();
-        setInitCounter(initCounter - 1);
+    const decrementHandler = () => {
+        dispatch(decrement());
     };
 
-    const resetHandler = (e) => {
-        e.preventDefault();
-        setInitCounter(initialState);
+    const resetHandler = () => {
+        dispatch(reset());
     }
+
     return (
         <div>
-            <div>{initCounter}</div>
+            <div>{counter}</div>
             <button onClick={incrementHandler}>Increment</button>
             <button onClick={decrementHandler}>Decrement</button>
             <button onClick={resetHandler}>Reset</button>

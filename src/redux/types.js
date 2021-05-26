@@ -1,8 +1,8 @@
-const INCREMENT;
-const DECREMENT;
-const RESET;
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const RESET = 'INCREMRESETENT';
 
-export default {
+export {
     INCREMENT,
     DECREMENT,
     RESET
